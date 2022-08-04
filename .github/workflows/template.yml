@@ -80,15 +80,10 @@ jobs:
           git lfs pull
           git add .
           git reset --hard
-      - name: Restore Library cache
-        uses: actions/cache@v2
-        with:
-          path: Library
-          key: Library-build-WebGL
-          restore-keys: |
-            Library-build-
-            Library-
+
       - uses: game-ci/unity-builder@v2
+        env:
+          UNITY_SERIAL: ${{ secrets.UNITY_LICENSE }}
         with:
           targetPlatform: WebGL
 
@@ -106,7 +101,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v2
         with:
           name: build-WebGL
 
