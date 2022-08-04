@@ -90,7 +90,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: build-WebGL
-          path: UserSettings
+          path: Build
 
 
   deployPages:
@@ -109,4 +109,4 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
           branch: gh-pages
-          folder: UserSettings
+          folder: Build
