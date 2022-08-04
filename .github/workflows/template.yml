@@ -3,7 +3,7 @@ name: GameCI Template 🎮
 on: push
 
 env:
-  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+  UNITY_LICENSE: ${{ secrets.UNITY_LIC }}
 
 jobs:
   testRunner:
@@ -81,7 +81,7 @@ jobs:
           restore-keys: Library-
       - uses: game-ci/unity-builder@v2
         env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_LICENSE: ${{ secrets.UNITY_LIC }}
         with:
           targetPlatform: ${{ matrix.targetPlatform }}
       - uses: actions/upload-artifact@v2
