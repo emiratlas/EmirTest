@@ -62,6 +62,9 @@ jobs:
     strategy:
       fail-fast: false
     steps:
+      - name Download file
+        run: mkdir downloads
+
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -95,4 +98,4 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: Build
-          path: UserSettings
+          path: downloads
