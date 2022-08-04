@@ -62,9 +62,6 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-      - name: Download file
-        run: mkdir downloads
-
       - name: Checkout code
         uses: actions/checkout@v2
 
@@ -97,5 +94,24 @@ jobs:
 
       - uses: actions/upload-artifact@v2
         with:
-          name: Build
-          path: downloads
+          name: build-WebGL
+          path: UserSettings
+
+
+  deployPages:
+    needs: buildWebGL
+    name: Deploy to Github Pages 🚀
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-WebGL
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.1.4
+        with:
+          branch: gh-pages
+          folder: UserSettings
