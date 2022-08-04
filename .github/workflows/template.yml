@@ -55,7 +55,7 @@ jobs:
           name: Test results (${{ matrix.testMode }})
           path: ${{ steps.testRunner.outputs.artifactsPath }}
 
-    buildWebGL:
+  buildWebGL:
     needs: testRunner
     name: Build for WebGL 🖥️
     runs-on: ubuntu-latest
@@ -83,7 +83,7 @@ jobs:
 
       - uses: game-ci/unity-builder@v2
         env:
-          UNITY_SERIAL: ${{ secrets.UNITY_LICENSE }}
+          UNITY_SERIAL: ${{ secrets.UNITY_LIC}}
         with:
           targetPlatform: WebGL
 
@@ -110,4 +110,3 @@ jobs:
         with:
           branch: gh-pages
           folder: UserSettings
-
