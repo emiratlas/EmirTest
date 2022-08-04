@@ -62,7 +62,7 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-      - name Download file
+      - name: Download file
         run: mkdir downloads
 
       - name: Checkout code
