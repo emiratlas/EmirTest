@@ -104,7 +104,9 @@ jobs:
           name: build-WebGL
           path: build/WebGL
       - name: Deploy to S3
-        run: aws s3 sync build/WebGL s3://atlas-test-testatlasspace-origin
+        run: aws s3 sync build/WebGL/Build s3://atlas-test-testatlasspace-origin
+        run: aws s3 sync build/WebGL/index s3://atlas-test-testatlasspace-origin
+        run: aws s3 sync build/WebGL/TemplateData s3://atlas-test-testatlasspace-origin
 
 
 #  deployPages:
