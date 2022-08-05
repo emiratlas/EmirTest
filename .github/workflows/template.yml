@@ -102,9 +102,9 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: build-WebGL
-          path: build
+          path: build/WebGL
       - name: Deploy to S3
-        run: aws s3 sync build s3://atlas-test-testatlasspace-origin
+        run: aws s3 sync build/WebGL s3://atlas-test-testatlasspace-origin
 
 
 #  deployPages:
