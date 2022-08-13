@@ -104,7 +104,7 @@ jobs:
           name: build-WebGL
           path: build/WebGL
       - name: Deploy to S3
-        run: aws s3 cp build/WebGL s3://atlas-test-testatlasspace-origin --recursive
+        run: aws s3 sync build/* s3://testcloudfrontatlas
 
 
 
