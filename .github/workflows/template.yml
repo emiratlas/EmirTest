@@ -104,7 +104,7 @@ jobs:
           name: build-WebGL
           path: build/WebGL
       - name: Deploy to S3
-        run: aws s3 sync build/* s3://testcloudfrontatlas
+        run: aws s3 sync build/WebGL/* s3://testcloudfrontatlas
 
 
 
