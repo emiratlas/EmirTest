@@ -88,23 +88,7 @@ jobs:
           #name: Build-${{ matrix.targetPlatform }}
           #path: build/${{ matrix.targetPlatform }}
 
-  deployAws:
-    needs: buildWebGL
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps:
-      - name: Set AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
-        with:
-          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: eu-west-1
-      - uses: actions/download-artifact@v2
-        with:
-          name: build-WebGL
-          path: build/WebGL
-      - name: Deploy to S3
-        run: aws s3 sync build/WebGL/* s3://testcloudfrontatlas
+
 
 
 
